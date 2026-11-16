@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ModuleHead from '../components/ModuleHead.astro';
+import Island from '../islands/Chiffrage';
+---
+<BaseLayout title="Business Probability Canvas" description="Le chiffrage complet : revenus, coûts, équipements, personnel, financement et fiscalité camerounaise. La synthèse se met à jour à chaque saisie.">
+  <ModuleHead etape={3} titre="Business Probability Canvas" lead="Le chiffrage complet : revenus, coûts, équipements, personnel, financement et fiscalité camerounaise. La synthèse se met à jour à chaque saisie." />
+  <section class="section-sm">
+    <div class="container">
+      <Island client:only="preact">
+        <div slot="fallback" class="skeleton">Chargement du projet…</div>
+      </Island>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ModuleHead from '../components/ModuleHead.astro';
+import Island from '../islands/Pretest';
+---
+<BaseLayout title="Pré-test" description="Dix situations, trois réponses possibles. Répondez avec sincérité : il n'y a pas de bonne réponse, seulement votre point de départ réel.">
+  <ModuleHead etape={1} titre="Pré-test" lead="Dix situations, trois réponses possibles. Répondez avec sincérité : il n'y a pas de bonne réponse, seulement votre point de départ réel." />
+  <section class="section-sm">
+    <div class="container">
+      <Island client:only="preact">
+        <div slot="fallback" class="skeleton">Chargement du projet…</div>
+      </Island>
+    </div>
+  </section>
+</BaseLayout>

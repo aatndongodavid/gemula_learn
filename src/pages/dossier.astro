@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ModuleHead from '../components/ModuleHead.astro';
+import Island from '../islands/Dossier';
+---
+<BaseLayout title="Dossier bancable" description="Votre score de bancabilité, le plan de financement, la lecture des résultats et les documents PDF prêts à remettre.">
+  <ModuleHead etape={6} titre="Dossier bancable" lead="Votre score de bancabilité, le plan de financement, la lecture des résultats et les documents PDF prêts à remettre." />
+  <section class="section-sm">
+    <div class="container">
+      <Island client:only="preact">
+        <div slot="fallback" class="skeleton">Chargement du projet…</div>
+      </Island>
+    </div>
+  </section>
+</BaseLayout>

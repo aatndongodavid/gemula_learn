@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ModuleHead from '../components/ModuleHead.astro';
+import Island from '../islands/Strategie';
+---
+<BaseLayout title="Stratégie et risques" description="Ce qu'un comité de crédit lit après les chiffres : votre analyse SWOT, vos risques et leurs parades, et la feuille de route des premiers mois.">
+  <ModuleHead etape={5} titre="Stratégie et risques" lead="Ce qu'un comité de crédit lit après les chiffres : votre analyse SWOT, vos risques et leurs parades, et la feuille de route des premiers mois." />
+  <section class="section-sm">
+    <div class="container">
+      <Island client:only="preact">
+        <div slot="fallback" class="skeleton">Chargement du projet…</div>
+      </Island>
+    </div>
+  </section>
+</BaseLayout>

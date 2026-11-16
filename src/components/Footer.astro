@@ -1,0 +1,33 @@
+---
+import Logo from './Logo.astro';
+import { ETAPES } from '../lib/nav';
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="stack" style="--gap:12px; max-width: 360px">
+      <Logo />
+      <p class="muted small">De l'idée au dossier bancable. Un outil conçu à Douala par Gemula, collectif d'étudiants polytechniciens et de chercheurs.</p>
+      <p class="xs" style="color: var(--subtle)">Vos données restent dans votre navigateur : rien n'est envoyé sur un serveur.</p>
+    </div>
+    <nav class="footer-links" aria-label="Parcours">
+      {ETAPES.map((e) => <a href={e.href}>{e.titre}</a>)}
+    </nav>
+    <div class="stack small" style="--gap:8px">
+      <a class="muted" href="https://gemula.org">gemula.org</a>
+      <a class="muted" href="mailto:contact@gemula.org">contact@gemula.org</a>
+    </div>
+  </div>
+  <div class="container footer-bottom xs">
+    <span>© {new Date().getFullYear()} Gemula. Pour nous les gems.</span>
+    <span>Résultats indicatifs : à valider avec un expert-comptable.</span>
+  </div>
+</footer>
+<style>
+  .footer { border-top: 1px solid var(--line); margin-top: 96px; padding-top: 48px; }
+  .footer-inner { display: grid; gap: 32px; }
+  @media (min-width: 900px) { .footer-inner { grid-template-columns: 1.4fr 1fr 0.8fr; } }
+  .footer-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.875rem; }
+  .footer-links a, .footer a.muted { color: var(--muted); }
+  .footer-links a:hover, .footer a.muted:hover { color: var(--fg); }
+  .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-top: 32px; padding-bottom: 32px; margin-top: 32px; border-top: 1px solid var(--line); color: var(--subtle); }
+</style>

@@ -1,0 +1,30 @@
+{
+  "name": "gemula-learn",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Gemula Learn : de l'idée au dossier bancable.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^6.1.6",
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/lora": "^5.3.0",
+    "@fontsource/montserrat": "^5.3.0",
+    "astro": "^7.4.12",
+    "pagedjs": "^0.4.3",
+    "preact": "^10.29.8"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

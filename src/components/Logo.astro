@@ -1,0 +1,15 @@
+---
+import FlagMark from './FlagMark.astro';
+---
+<span class="logo">
+  <FlagMark class="logo-flag" />
+  <span class="logo-word">Gemula</span>
+  <span class="logo-learn">Learn</span>
+</span>
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 8px; }
+  .logo :global(.logo-flag) { height: 26px; width: auto; }
+  .logo-word { font-family: Poppins, Inter, sans-serif; font-weight: 600; font-size: 1.3rem; letter-spacing: -0.02em; color: var(--fg); }
+  .logo-learn { font-size: 0.75rem; font-weight: 500; color: var(--accent-text); border: 1px solid #4a2410; background: var(--accent-soft); border-radius: 6px; padding: 2px 7px; }
+  @media (max-width: 400px) { .logo-learn { display: none; } }
+</style>
