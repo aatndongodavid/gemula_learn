@@ -7,7 +7,6 @@ import { alertes, bancabilite, lecture } from '../lib/analyse';
 import { profil } from '../lib/pretest';
 import { defChoc } from '../lib/chocs';
 import { dateLongue, decimal, fcfa, libelleMois, libelleMoisLong, milliers, nombre, pct, slug } from '../lib/format';
-import { flagCells, FLAG_VIEWBOX } from '../lib/flag';
 import type { Projet } from '../lib/model';
 import { BarChart, LineChart, PALETTE_DOC, Tornado } from './charts';
 import { criticite, niveauRisque } from './Strategie';
@@ -23,9 +22,8 @@ const TITRES: Record<TypeDoc, { surtitre: string; sous: string; court: string }>
 
 const MODELE_TXT = { vente: 'Vente unique', mrr: 'Abonnement mensuel', mrr_boitier: 'Boîtier et abonnement mensuel' };
 
-export function Flag({ color = '#FF5000' }: { color?: string }) {
-  return <svg viewBox={FLAG_VIEWBOX} fill={color} aria-hidden="true">{flagCells().map((d) => <path d={d} />)}</svg>;
-}
+/** Logo officiel Gemula, utilisé tel quel. */
+const LOGO = '/logo-gemula.png';
 
 const T = (s?: string) => (s && s.trim() ? s : null);
 const Champ = ({ t, v }: { t: string; v?: string }) => (
@@ -532,7 +530,7 @@ function Contenu({ p, doc }: { p: Projet; doc: TypeDoc }) {
     <div class="doc">
       <section class="couverture">
         <div class="cadre-ext" /><div class="cadre-int" />
-        <div class="logo-couv"><Flag /><span class="mot">Gemula</span></div>
+        <div class="logo-couv"><img src={LOGO} alt="Gemula" width="900" height="578" /></div>
         <div class="surtitre">{t.surtitre}</div>
         <div class="soustitre">{t.sous}</div>
         <h1>{nom}</h1>
@@ -548,7 +546,7 @@ function Contenu({ p, doc }: { p: Projet; doc: TypeDoc }) {
       </section>
 
       <section class="liminaire">
-        <div class="entete"><Flag /><span>{nom}</span></div>
+        <div class="entete"><img src={LOGO} alt="Gemula" width="900" height="578" /><span>{nom}</span></div>
         <div class="label-section">Fiche du document</div>
         <div class="trait-court" />
         <table>

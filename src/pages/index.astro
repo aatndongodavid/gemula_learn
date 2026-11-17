@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FlagMark from '../components/FlagMark.astro';
 import HomeStatus, { DemoButton } from '../islands/HomeStatus';
 
 const atouts = [
@@ -21,7 +20,7 @@ const modeles = [
   <section class="hero glow-top">
     <div class="grid-bg hero-grid" aria-hidden="true"></div>
     <div class="container hero-inner anim-fade-up">
-      <FlagMark class="hero-flag" />
+      <img src="/logo-gemula.webp" alt="Gemula" class="hero-logo" width="187" height="120" />
       <span class="pill"><span class="dot"></span>Un outil Gemula pour les porteurs de projets</span>
       <h1 class="display-lg text-gradient" style="margin-top: 20px">De l'idée au dossier bancable.</h1>
       <p class="lead" style="margin: 20px auto 0">Structurez votre projet, chiffrez-le avec la fiscalité camerounaise, éprouvez-le face aux imprévus et remettez à votre banque un dossier clair et argumenté.</p>
@@ -93,7 +92,7 @@ const modeles = [
   .hero { position: relative; overflow: hidden; padding: 88px 0 72px; text-align: center; }
   .hero-grid { position: absolute; inset: 0; pointer-events: none; }
   .hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
-  .hero :global(.hero-flag) { height: 64px; width: auto; margin-bottom: 28px; filter: drop-shadow(0 10px 40px rgba(255, 80, 0, 0.35)); }
+  .hero-logo { height: 120px; width: auto; margin-bottom: 28px; filter: drop-shadow(0 10px 40px rgba(255, 80, 0, 0.3)); }
   .models { display: grid; gap: 28px; align-items: center; }
   @media (min-width: 900px) { .models { grid-template-columns: 1fr 1fr; padding: 40px; } }
   .cta { text-align: center; padding-top: 48px; }
