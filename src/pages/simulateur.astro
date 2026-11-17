@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ModuleHead from '../components/ModuleHead.astro';
+import Island from '../islands/Simulateur';
+---
+<BaseLayout title="Simulateur et stress-tests" description="Trois scénarios sur 36 mois, la trésorerie mois par mois, l'hypothèse qui pèse le plus et dix chocs à combiner pour éprouver le projet.">
+  <ModuleHead etape={4} titre="Simulateur et stress-tests" lead="Trois scénarios sur 36 mois, la trésorerie mois par mois, l'hypothèse qui pèse le plus et dix chocs à combiner pour éprouver le projet." />
+  <section class="section-sm">
+    <div class="container">
+      <Island client:only="preact">
+        <div slot="fallback" class="skeleton">Chargement du projet…</div>
+      </Island>
+    </div>
+  </section>
+</BaseLayout>

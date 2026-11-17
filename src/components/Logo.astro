@@ -1,0 +1,15 @@
+---
+// Logo officiel Gemula, utilisé tel quel (public/logo-gemula.webp).
+interface Props { hauteur?: number; badge?: boolean; }
+const { hauteur = 36, badge = true } = Astro.props;
+---
+<span class="logo">
+  <img src="/logo-gemula.webp" alt="Gemula" width={Math.round(hauteur * 900 / 578)} height={hauteur} style={`height:${hauteur}px`} decoding="async" />
+  {badge && <span class="logo-learn">Learn</span>}
+</span>
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 10px; }
+  .logo img { width: auto; display: block; }
+  .logo-learn { font-size: 0.75rem; font-weight: 500; color: var(--accent-text); border: 1px solid #4a2410; background: var(--accent-soft); border-radius: 6px; padding: 2px 7px; }
+  @media (max-width: 400px) { .logo-learn { display: none; } }
+</style>

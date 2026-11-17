@@ -1,0 +1,12 @@
+---
+interface Props { etape: number; titre: string; lead: string; }
+const { etape, titre, lead } = Astro.props;
+---
+<section class="module-head glow-top">
+  <div class="container anim-fade-up">
+    <span class="eyebrow">Étape {String(etape).padStart(2, '0')}</span>
+    <h1 class="display-sm" style="margin-top: 10px">{titre}</h1>
+    <p class="lead">{lead}</p>
+    <slot />
+  </div>
+</section>

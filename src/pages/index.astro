@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeStatus, { DemoButton } from '../islands/HomeStatus';
+
+const atouts = [
+  { t: 'Plan financier sur 36 mois', d: '12 mois détaillés puis une vue sur 3 ans : compte de résultat, trésorerie, besoin de financement et retour sur investissement.' },
+  { t: 'Fiscalité camerounaise', d: 'TVA à 19,25 %, cotisations CNPS plafonnées, impôt général synthétique ou impôt sur les sociétés avec minimum de perception.' },
+  { t: 'Trois scénarios', d: 'Prudent, base et ambitieux calculés en même temps, avec la trajectoire de trésorerie de chacun.' },
+  { t: 'Dix chocs combinables', d: 'Mois sans vente, perte de clients, hausse des coûts, panne, retard de paiement… appliqués seuls ou ensemble.' },
+  { t: 'Sensibilité et bancabilité', d: 'L’hypothèse qui pèse le plus sur votre résultat et un score aligné sur les critères des banques et des microfinances.' },
+  { t: 'Dossier PDF prêt à remettre', d: 'Page de garde, sommaire, synthèse, plan financier, graphiques, risques et feuille de route, mis en page comme un document professionnel.' }
+];
+const modeles = [
+  { t: 'Vente unique', d: 'Chaque client paie à l’acte : commerce, restauration, services.' },
+  { t: 'Abonnement mensuel', d: 'Revenu récurrent, attrition, valeur client (LTV) et coût d’acquisition (CAC).' },
+  { t: 'Boîtier + abonnement', d: 'Vente d’un équipement puis abonnement : IoT, énergie solaire, télécoms.' }
+];
+---
+<BaseLayout title="Gemula Learn" description="De l'idée au dossier bancable : structurez, chiffrez, simulez et exportez votre projet en un dossier prêt à présenter.">
+  <section class="hero glow-top">
+    <div class="grid-bg hero-grid" aria-hidden="true"></div>
+    <div class="container hero-inner anim-fade-up">
+      <img src="/logo-gemula.webp" alt="Gemula" class="hero-logo" width="187" height="120" />
+      <span class="pill"><span class="dot"></span>Un outil Gemula pour les porteurs de projets</span>
+      <h1 class="display-lg text-gradient" style="margin-top: 20px">De l'idée au dossier bancable.</h1>
+      <p class="lead" style="margin: 20px auto 0">Structurez votre projet, chiffrez-le avec la fiscalité camerounaise, éprouvez-le face aux imprévus et remettez à votre banque un dossier clair et argumenté.</p>
+      <div class="row" style="justify-content: center; margin-top: 32px">
+        <a href="/pretest" class="btn btn-primary">Commencer le parcours</a>
+        <DemoButton client:only="preact" />
+      </div>
+      <p class="xs" style="margin-top: 16px; color: var(--subtle)">Gratuit, sans compte. Vos données restent dans votre navigateur.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <span class="eyebrow">Parcours</span>
+      <h2 class="display-sm" style="margin: 8px 0 8px">Six étapes, un seul projet.</h2>
+      <p class="muted" style="margin-bottom: 32px; max-width: 60ch">Chaque donnée saisie alimente automatiquement les étapes suivantes. Suivez l'ordre ou allez directement à l'outil dont vous avez besoin.</p>
+      <HomeStatus client:only="preact">
+        <div slot="fallback" class="skeleton">Chargement…</div>
+      </HomeStatus>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <span class="eyebrow">Ce que l'outil calcule</span>
+      <h2 class="display-sm" style="margin: 8px 0 32px">Un vrai modèle financier, pas un formulaire.</h2>
+      <div class="grid-3">
+        {atouts.map((a) => (
+          <div class="card">
+            <h3 style="font-size: 1.05rem">{a.t}</h3>
+            <p class="muted small" style="margin-top: 8px">{a.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="card models">
+        <div>
+          <span class="eyebrow">Modèles économiques</span>
+          <h2 class="display-sm" style="margin-top: 8px">Trois façons de gagner de l'argent, trois logiques de calcul.</h2>
+        </div>
+        <div class="stack" style="--gap: 12px">
+          {modeles.map((m) => (
+            <div class="card-flat">
+              <div style="font-weight: 600">{m.t}</div>
+              <div class="muted small" style="margin-top: 2px">{m.d}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container cta">
+      <h2 class="display-md text-gradient">Votre dossier, prêt en une après-midi.</h2>
+      <p class="lead" style="margin: 16px auto 0">Le pré-test prend trois minutes et personnalise le reste du parcours.</p>
+      <div class="row" style="justify-content: center; margin-top: 28px">
+        <a href="/pretest" class="btn btn-primary">Faire le pré-test</a>
+        <a href="/bpc" class="btn btn-ghost">Aller au chiffrage</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .hero { position: relative; overflow: hidden; padding: 88px 0 72px; text-align: center; }
+  .hero-grid { position: absolute; inset: 0; pointer-events: none; }
+  .hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .hero-logo { height: 120px; width: auto; margin-bottom: 28px; filter: drop-shadow(0 10px 40px rgba(255, 80, 0, 0.3)); }
+  .models { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 900px) { .models { grid-template-columns: 1fr 1fr; padding: 40px; } }
+  .cta { text-align: center; padding-top: 48px; }
+  .etape { display: block; }
+</style>

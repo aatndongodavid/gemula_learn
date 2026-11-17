@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ModuleHead from '../components/ModuleHead.astro';
+import Island from '../islands/CanvasForm';
+---
+<BaseLayout title="Market Fit Canvas" description="Les fondations du projet en six blocs. Chaque bloc propose un Master Prompt prérempli avec vos réponses, à coller dans un assistant IA.">
+  <ModuleHead etape={2} titre="Market Fit Canvas" lead="Les fondations du projet en six blocs. Chaque bloc propose un Master Prompt prérempli avec vos réponses, à coller dans un assistant IA." />
+  <section class="section-sm">
+    <div class="container">
+      <Island client:only="preact">
+        <div slot="fallback" class="skeleton">Chargement du projet…</div>
+      </Island>
+    </div>
+  </section>
+</BaseLayout>

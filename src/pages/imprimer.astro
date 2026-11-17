@@ -1,0 +1,47 @@
+---
+import '@fontsource/cormorant-garamond/400.css';
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/400-italic.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/400-italic.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import Document from '../islands/Document';
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Document · Gemula Learn</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <style is:global>
+      @font-face { font-family: 'Poppins'; font-weight: 600; font-display: swap; src: url('/fonts/Poppins-600.woff2') format('woff2'); }
+      html, body { margin: 0; }
+      @media screen {
+        body { background: #2b2722; font-family: Inter, system-ui, sans-serif; }
+        .source { position: absolute; left: -10000px; top: 0; width: 170mm; }
+        .barre { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 10px 16px; background: #08090A; color: #F7F8F8; border-bottom: 1px solid #212226; font-size: 14px; }
+        .b-lien { color: #9A9FA8; text-decoration: none; }
+        .b-lien:hover { color: #F7F8F8; }
+        .b-titre { font-weight: 600; }
+        .b-actions { display: flex; align-items: center; gap: 12px; }
+        .b-etat { color: #9A9FA8; }
+        .b-btn { background: #FF5000; color: #08090A; border: 0; border-radius: 10px; padding: 10px 16px; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer; }
+        .b-btn:disabled { opacity: .4; cursor: wait; }
+        .pages { padding: 24px 0 48px; }
+        .pagedjs_pages { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .pagedjs_page { box-shadow: 0 10px 40px rgba(0,0,0,.45); }
+      }
+      @media print {
+        .no-print, .barre, .source { display: none !important; }
+        .pages { padding: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <Document client:only="preact" />
+  </body>
+</html>
